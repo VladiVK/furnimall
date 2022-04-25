@@ -1,3 +1,4 @@
+import SharedLayout from './sharedLayout/SharedLayout';
 import AboutPage from './aboutPage/AboutPage';
 import AuthPage from './authPage/AuthWrapper';
 import CartPage from './cartPage/CartPage';
@@ -18,4 +19,5 @@ export {
   PrivateRoutePage,
   ProductsPage,
   SingleProductPage,
+  SharedLayout,
 };
