@@ -3,14 +3,13 @@
 
 import { links } from '../../utils/constants.js';
 
-import logo from '../../assets/protagonist-logo-1.svg';
+import logo from '../../assets/protagonist-logo-2.svg';
 import { FaBars } from 'react-icons/fa';
-import { Link } from 'react-router-dom';
+import { Link, NavLink } from 'react-router-dom';
 // Styles
 import { NavContainer } from './style.js';
 import CartButtons from '../cartButtons';
 
-// import CartButtons from './CartButtons';
 // import { useProductsContext } from '../context/products_context';
 // import { useUserContext } from '../context/user_context';
 
@@ -30,7 +29,7 @@ const Navbar = () => {
           {links.map(({ id, text, url }) => {
             return (
               <li key={id}>
-                <Link to={url}>{text}</Link>
+                <NavLink to={url}>{text}</NavLink>
               </li>
             );
           })}
