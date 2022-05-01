@@ -6,6 +6,7 @@ export const Wrapper = styled.div`
   grid-template-columns: 1fr 1fr;
   align-items: center;
   width: 225px;
+  margin: 0 auto;
 
   .cart__btn {
     color: var(--clr-primary-4);

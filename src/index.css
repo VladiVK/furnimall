@@ -16,6 +16,7 @@
   --clr-primary-10: #ebeded;
   /* accent colors */
   --clr-yellow: #ffb338;
+  --clr-yellow-dark: #ffa513;
 
   --clr-white: #fff;
   --clr-red-dark: hsl(360, 67%, 44%);
