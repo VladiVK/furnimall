@@ -67,6 +67,12 @@ export const NavContainer = styled.nav`
           border-bottom: 2px solid var(--clr-yellow);
         }
       }
+      a.active {
+        color: var(--clr-yellow);
+        /* background: var(--clr-black);
+        border-radius: 10px;
+        padding: 0.3rem 0.9rem; */
+      }
     }
     .cart-btn__wrapper {
       display: grid;
