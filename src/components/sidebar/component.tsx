@@ -11,13 +11,15 @@ import { SIDEBAR_CLOSE } from '../../actions';
 // import { useUserContext } from '../context/user_context';
 
 const Sidebar = () => {
-  const { state, dispatch } = useProductsContext();
+  const { productsState, productsDispatch } = useProductsContext();
 
-  const closeSidebar = () => dispatch({ type: 'SIDEBAR_CLOSE' });
+  const closeSidebar = () => productsDispatch({ type: 'SIDEBAR_CLOSE' });
 
   return (
     <SidebarContainer>
-      <aside className={`sidebar ${state.isSidebarOpen && 'show-sidebar'}`}>
+      <aside
+        className={`sidebar ${productsState.isSidebarOpen && 'show-sidebar'}`}
+      >
         <div className='sidebar__header'>
           <img className='logo' src={logo} alt='furnimall' />
           <button className='close-btn' type='button' onClick={closeSidebar}>
@@ -27,12 +29,16 @@ const Sidebar = () => {
         <ul className='links'>
           {links.map(({ id, text, url }) => (
             <li key={id}>
-              <NavLink to={url}>{text}</NavLink>
+              <NavLink to={url} onClick={closeSidebar}>
+                {text}
+              </NavLink>
             </li>
           ))}
           {/* checkout */}
           <li>
-            <NavLink to='/checkout'>checkout</NavLink>
+            <NavLink to='/checkout' onClick={closeSidebar}>
+              checkout
+            </NavLink>
           </li>
         </ul>
         <CartButtons />

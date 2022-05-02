@@ -14,14 +14,14 @@ const initialState = {
 };
 
 const ProductsContext = createContext<{
-  state: ProductsUI;
-  dispatch: React.Dispatch<ProductsActionUI>;
-}>({ state: initialState, dispatch: () => {} });
+  productsState: ProductsUI;
+  productsDispatch: React.Dispatch<ProductsActionUI>;
+}>({ productsState: initialState, productsDispatch: () => {} });
 
 export const ProductsProvider = ({ children }: ProductsProviderProps) => {
-  const [state, dispatch] = useReducer(reducer, initialState);
+  const [productsState, productsDispatch] = useReducer(reducer, initialState);
   return (
-    <ProductsContext.Provider value={{ state, dispatch }}>
+    <ProductsContext.Provider value={{ productsState, productsDispatch }}>
       {children}
     </ProductsContext.Provider>
   );

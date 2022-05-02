@@ -14,8 +14,9 @@ import { useProductsContext } from '../../context/products-context/products_cont
 // import { useUserContext } from '../context/user_context';
 
 const Navbar = () => {
-  const { state, dispatch } = useProductsContext();
-  const openSidebar = () => dispatch({ type: 'SIDEBAR_OPEN' });
+  const { productsDispatch } = useProductsContext();
+  const openSidebar = () => productsDispatch({ type: 'SIDEBAR_OPEN' });
+
   return (
     <NavContainer>
       <div className='nav__center'>
