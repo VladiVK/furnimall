@@ -9,11 +9,6 @@ enum ProductsActionsList {
   GET_SINGLE_PRODUCT_ERROR = 'GET_SINGLE_PRODUCT_ERROR',
 }
 
-// export const InitialStateUI = {
-//   isSidebarOpen: false
-// }
-// export type ProductsUI = typeof InitialStateUI;
-
 export type ProductsUI = {
   isSidebarOpen: boolean;
 };
