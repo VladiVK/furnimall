@@ -10,10 +10,12 @@ import { Link, NavLink } from 'react-router-dom';
 import { NavContainer } from './style.js';
 import CartButtons from '../cartButtons';
 
-// import { useProductsContext } from '../context/products_context';
+import { useProductsContext } from '../../context/products-context/products_context';
 // import { useUserContext } from '../context/user_context';
 
 const Navbar = () => {
+  const { state, dispatch } = useProductsContext();
+  const openSidebar = () => dispatch({ type: 'SIDEBAR_OPEN' });
   return (
     <NavContainer>
       <div className='nav__center'>
@@ -21,7 +23,7 @@ const Navbar = () => {
           <Link to='/'>
             <img src={logo} alt='furnimall' />
           </Link>
-          <button className='nav__toggle'>
+          <button className='nav__toggle' onClick={openSidebar}>
             <FaBars />
           </button>
         </div>

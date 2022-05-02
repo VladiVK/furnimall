@@ -1,6 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 import { BrowserRouter } from 'react-router-dom';
+import { ProductsProvider } from './context/products-context/products_context';
 import './index.css';
 import App from './App';
 
@@ -9,8 +10,10 @@ const root = ReactDOM.createRoot(
 );
 root.render(
   <React.StrictMode>
-    <BrowserRouter>
-      <App />
-    </BrowserRouter>
+    <ProductsProvider>
+      <BrowserRouter>
+        <App />
+      </BrowserRouter>
+    </ProductsProvider>
   </React.StrictMode>
 );
