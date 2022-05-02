@@ -25,8 +25,8 @@ function App() {
           <Route path='products' element={<ProductsPage />} />
           <Route path='products/:id' element={<SingleProductPage />} />
           <Route path='checkout' element={<CheckoutPage />} />
+          <Route path='*' element={<ErrorPage />} />
         </Route>
-        <Route path='*' element={<ErrorPage />} />
       </Routes>
     </div>
   );
