@@ -1,3 +1,6 @@
+import React from 'react';
+import { IconType } from 'react-icons';
+
 enum ProductsActionsList {
   SIDEBAR_OPEN = 'SIDEBAR_OPEN',
   SIDEBAR_CLOSE = 'SIDEBAR_CLOSE',
