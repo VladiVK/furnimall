@@ -7,6 +7,7 @@ import {
   ProductsUI,
   ProductsProviderProps,
   ProductsActionUI,
+  SingleProductUI,
 } from '../../global-types';
 
 const initialState = {

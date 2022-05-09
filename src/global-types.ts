@@ -16,8 +16,8 @@ export type ProductsUI = {
   isSidebarOpen: boolean;
   products_loading: boolean;
   products_error: boolean;
-  products: any[];
-  featured_products: any[];
+  products: SingleProductUI[];
+  featured_products: SingleProductUI[];
 };
 export type ProductsProviderProps = {
   children: React.ReactNode;
@@ -32,3 +32,16 @@ export type ProductsActionUI =
   | { type: 'GET_PRODUCTS_BEGIN' }
   | { type: 'GET_PRODUCTS_SUCCESS'; payload: any[] }
   | { type: 'GET_PRODUCTS_ERROR' };
+
+export type SingleProductUI = {
+  id: string;
+  name: string;
+  price: number;
+  image: string;
+  colors: string[];
+  company: string;
+  description: string;
+  category: string;
+  shipping?: boolean;
+  featured?: boolean;
+};
