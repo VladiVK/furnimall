@@ -14,6 +14,10 @@ enum ProductsActionsList {
 
 export type ProductsUI = {
   isSidebarOpen: boolean;
+  products_loading: boolean;
+  products_error: boolean;
+  products: any[];
+  featured_products: any[];
 };
 export type ProductsProviderProps = {
   children: React.ReactNode;
@@ -24,4 +28,7 @@ export type ProductsProviderProps = {
 // };
 export type ProductsActionUI =
   | { type: 'SIDEBAR_OPEN' }
-  | { type: 'SIDEBAR_CLOSE' };
+  | { type: 'SIDEBAR_CLOSE' }
+  | { type: 'GET_PRODUCTS_BEGIN' }
+  | { type: 'GET_PRODUCTS_SUCCESS'; payload: any[] }
+  | { type: 'GET_PRODUCTS_ERROR' };
