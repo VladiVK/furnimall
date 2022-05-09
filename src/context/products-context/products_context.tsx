@@ -37,9 +37,11 @@ export const ProductsProvider = ({ children }: ProductsProviderProps) => {
       productsDispatch({ type: 'GET_PRODUCTS_ERROR' });
     }
   };
+
   useEffect(() => {
     fetchProducts(url);
   }, []);
+
   return (
     <ProductsContext.Provider value={{ productsState, productsDispatch }}>
       {children}
