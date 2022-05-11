@@ -1,12 +1,12 @@
 import React from 'react';
 import { FaSearch } from 'react-icons/fa';
 import { Link } from 'react-router-dom';
-import { SingleProductUI } from '../../global-types';
+import { BasicProductUI } from '../../global-types';
 import { Wrapper } from './style';
 
 import { formatPrice } from '../../utils/helpers';
 
-const Product = ({ id, image, name, price }: SingleProductUI) => {
+const Product = ({ id, image, name, price }: BasicProductUI) => {
   return (
     <Wrapper>
       <div className='container'>

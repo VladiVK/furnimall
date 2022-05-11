@@ -170,8 +170,8 @@ p {
   border-color: transparent;
 }
 .btn:hover {
-  color: var(--clr-primary-1);
-  background: var(--clr-primary-7);
+  color: var(--clr-white);
+  /* background: var(--clr-primary-7); */
 }
 .title {
   text-align: center;

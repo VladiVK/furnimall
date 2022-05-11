@@ -7,7 +7,11 @@ import Sidebar from './sidebar';
 import Services from './servicesSection';
 import Contact from './contact';
 import FeaturedProducts from './featuredProdcuts';
-
+import Loading from './loading';
+import Error from './error';
+import ProductImages from './productImages';
+import Stars from './stars';
+import AddToCart from './addToCart';
 export {
   CartButtons,
   Footer,
@@ -18,4 +22,9 @@ export {
   Services,
   Contact,
   FeaturedProducts,
+  Loading,
+  Error,
+  ProductImages,
+  Stars,
+  AddToCart,
 };

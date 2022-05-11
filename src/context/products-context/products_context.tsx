@@ -10,12 +10,15 @@ import {
   SingleProductUI,
 } from '../../global-types';
 
-const initialState = {
+const initialState: ProductsUI = {
   isSidebarOpen: false,
   products_loading: false,
   products_error: false,
   products: [],
   featured_products: [],
+  single_product_loading: false,
+  single_product_error: false,
+  single_product: {} as SingleProductUI,
 };
 
 const ProductsContext = createContext<{
