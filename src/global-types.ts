@@ -52,20 +52,36 @@ export type BasicProductUI = {
   featured?: boolean;
 };
 
-export type SingleProductImgUI = {
-  filename: string;
-  height: number;
-  id: string;
-  size: number;
-  type: string;
-  url: string;
-  width: number;
-  thumbnails: {
-    full: { height: number; width: number; url: string };
-    large: { height: number; width: number; url: string };
-    small: { height: number; width: number; url: string };
-  };
-};
+export type SingleProductImgUI =
+  | {
+      filename: string;
+      height: number;
+      id: string;
+      size: number;
+      type: string;
+      url: string;
+      width: number;
+      thumbnails: {
+        full: { height: number; width: number; url: string };
+        large: { height: number; width: number; url: string };
+        small: { height: number; width: number; url: string };
+      };
+    }
+  | {
+      filename?: string;
+      height?: number;
+      id?: string;
+      size?: number;
+      type?: string;
+      url: '';
+      width?: number;
+      thumbnails?: {
+        full: { height: number; width: number; url: string };
+        large: { height: number; width: number; url: string };
+        small: { height: number; width: number; url: string };
+      };
+    };
+
 export type SingleProductUI = {
   id: string;
   name: string;
