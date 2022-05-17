@@ -17,7 +17,7 @@ const ProductImages = ({ images = [{ url: '' }] }: ProductImagesProps) => {
         {images.map((image, index) => {
           return (
             <img
-              key={image.id}
+              key={index}
               src={image.url}
               alt={image.filename}
               onClick={() => setMainImage(images[index])}
