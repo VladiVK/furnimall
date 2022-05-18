@@ -12,6 +12,7 @@ import Error from './error';
 import ProductImages from './productImages';
 import Stars from './stars';
 import AddToCart from './addToCart';
+import AmountButtons from './amountButtons';
 export {
   CartButtons,
   Footer,
@@ -27,4 +28,5 @@ export {
   ProductImages,
   Stars,
   AddToCart,
+  AmountButtons,
 };
