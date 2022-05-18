@@ -104,6 +104,11 @@ export type SingleProductUI = {
 export type FilterProviderProps = {
   children: React.ReactNode;
 };
+export type FilterUI = {
+  filtered_products: BasicProductUI[];
+  all_products: BasicProductUI[];
+  grid_view: boolean;
+};
 export type FilterActionUI =
   | { type: 'LOAD_PRODUCTS'; payload: BasicProductUI[] }
   | { type: 'SET_GRIDVIEW' }
@@ -113,8 +118,3 @@ export type FilterActionUI =
   | { type: 'UPDATE_FILTERS' }
   | { type: 'FILTER_PRODUCTS' }
   | { type: 'CLEAR_FILTERS' };
-
-export type FilterUI = {
-  filtered_products: BasicProductUI[];
-  all_products: BasicProductUI[];
-};

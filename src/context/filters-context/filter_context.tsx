@@ -11,6 +11,7 @@ import { useProductsContext } from '../products-context/products_context';
 const initialState: FilterUI = {
   filtered_products: [],
   all_products: [],
+  grid_view: true,
 };
 
 const FilterContext = createContext<{

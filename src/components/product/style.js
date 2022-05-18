@@ -46,8 +46,7 @@ export const Wrapper = styled.article`
     align-items: center;
   }
   footer h5 {
-    color: var(--clr-white);
-    color: var(--clr-primary-10);
+    color: var(--clr-primary-5);
   }
   footer h5,
   footer p {
@@ -56,7 +55,7 @@ export const Wrapper = styled.article`
   }
 
   footer p {
-    color: var(--clr-white);
+    color: var(--clr-primary-5);
 
     letter-spacing: var(--spacing);
   }
