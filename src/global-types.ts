@@ -1,6 +1,7 @@
 import React from 'react';
 import { IconType } from 'react-icons';
 
+// PRODUCTS
 enum ProductsActionsList {
   SIDEBAR_OPEN = 'SIDEBAR_OPEN',
   SIDEBAR_CLOSE = 'SIDEBAR_CLOSE',
@@ -96,4 +97,24 @@ export type SingleProductUI = {
   reviews: number;
   stars: number;
   stock: number;
+};
+
+// FILTERS
+
+export type FilterProviderProps = {
+  children: React.ReactNode;
+};
+export type FilterActionUI =
+  | { type: 'LOAD_PRODUCTS'; payload: BasicProductUI[] }
+  | { type: 'SET_GRIDVIEW' }
+  | { type: 'SET_LISTVIEW' }
+  | { type: 'UPDATE_SORT' }
+  | { type: 'SORT_PRODUCTS' }
+  | { type: 'UPDATE_FILTERS' }
+  | { type: 'FILTER_PRODUCTS' }
+  | { type: 'CLEAR_FILTERS' };
+
+export type FilterUI = {
+  filtered_products: BasicProductUI[];
+  all_products: BasicProductUI[];
 };
