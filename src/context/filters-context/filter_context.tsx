@@ -12,6 +12,7 @@ const initialState: FilterUI = {
   filtered_products: [],
   all_products: [],
   grid_view: true,
+  sort: 'price-lowest',
 };
 
 const FilterContext = createContext<{

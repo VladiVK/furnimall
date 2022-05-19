@@ -104,16 +104,18 @@ export type SingleProductUI = {
 export type FilterProviderProps = {
   children: React.ReactNode;
 };
+export type SortUI = 'price-lowest' | 'price-highest' | 'name-a' | 'name-z';
 export type FilterUI = {
   filtered_products: BasicProductUI[];
   all_products: BasicProductUI[];
   grid_view: boolean;
+  sort: SortUI;
 };
 export type FilterActionUI =
   | { type: 'LOAD_PRODUCTS'; payload: BasicProductUI[] }
   | { type: 'SET_GRIDVIEW' }
   | { type: 'SET_LISTVIEW' }
-  | { type: 'UPDATE_SORT' }
+  | { type: 'UPDATE_SORT'; payload: SortUI }
   | { type: 'SORT_PRODUCTS' }
   | { type: 'UPDATE_FILTERS' }
   | { type: 'FILTER_PRODUCTS' }
