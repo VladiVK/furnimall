@@ -22,13 +22,17 @@ const FilterContext = createContext<{
 
 export const FilterProvider = ({ children }: FilterProviderProps) => {
   const { productsState } = useProductsContext();
+  const products = productsState.products;
 
   const [filterState, filterDispatch] = useReducer(reducer, initialState);
 
   useEffect(() => {
-    filterDispatch({ type: 'LOAD_PRODUCTS', payload: productsState.products });
-  }, [productsState]);
+    filterDispatch({ type: 'LOAD_PRODUCTS', payload: products });
+  }, [products]);
 
+  useEffect(() => {
+    filterDispatch({ type: 'SORT_PRODUCTS' });
+  }, [products, filterState.sort]);
   return (
     <FilterContext.Provider value={{ filterState, filterDispatch }}>
       {children}

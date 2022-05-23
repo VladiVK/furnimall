@@ -19,8 +19,6 @@ const Sort = () => {
     // const name = e.target.name;
     const value: SortUI = e.target.value as SortUI;
     filterDispatch({ type: 'UPDATE_SORT', payload: value });
-
-    console.log(value);
   };
   return (
     <Wrapper>
