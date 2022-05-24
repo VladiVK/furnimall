@@ -107,11 +107,23 @@ export type FilterProviderProps = {
 
 export type SortUI = 'price-lowest' | 'price-highest' | 'name-a' | 'name-z';
 
+export type FiltersCategoriesUI = {
+  text: string;
+  company: string;
+  category: string;
+  color: string;
+  min_price: number;
+  max_price: number;
+  price: number;
+  shipping: boolean;
+};
+
 export type FilterUI = {
   filtered_products: BasicProductUI[];
   all_products: BasicProductUI[];
   grid_view: boolean;
   sort: SortUI;
+  filters: FiltersCategoriesUI;
 };
 
 export type FilterActionUI =
@@ -120,6 +132,6 @@ export type FilterActionUI =
   | { type: 'SET_LISTVIEW' }
   | { type: 'UPDATE_SORT'; payload: SortUI }
   | { type: 'SORT_PRODUCTS' }
-  | { type: 'UPDATE_FILTERS' }
+  | { type: 'UPDATE_FILTERS'; payload: { name: string; value: string } }
   | { type: 'FILTER_PRODUCTS' }
   | { type: 'CLEAR_FILTERS' };

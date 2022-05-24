@@ -13,6 +13,16 @@ const initialState: FilterUI = {
   all_products: [],
   grid_view: true,
   sort: 'price-lowest',
+  filters: {
+    text: '',
+    category: 'all',
+    color: 'all',
+    company: 'all',
+    max_price: 0,
+    min_price: 0,
+    price: 0,
+    shipping: false,
+  },
 };
 
 const FilterContext = createContext<{
@@ -22,6 +32,7 @@ const FilterContext = createContext<{
 
 export const FilterProvider = ({ children }: FilterProviderProps) => {
   const { productsState } = useProductsContext();
+
   const products = productsState.products;
 
   const [filterState, filterDispatch] = useReducer(reducer, initialState);
@@ -31,8 +42,10 @@ export const FilterProvider = ({ children }: FilterProviderProps) => {
   }, [products]);
 
   useEffect(() => {
+    filterDispatch({ type: 'FILTER_PRODUCTS' });
     filterDispatch({ type: 'SORT_PRODUCTS' });
-  }, [products, filterState.sort]);
+  }, [products, filterState.sort, filterState.filters]);
+
   return (
     <FilterContext.Provider value={{ filterState, filterDispatch }}>
       {children}

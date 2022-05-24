@@ -3,11 +3,13 @@ import { BasicProductUI, FilterActionUI, FilterUI } from '../global-types';
 const filter_reducer = (state: FilterUI, action: FilterActionUI): FilterUI => {
   switch (action.type) {
     case 'LOAD_PRODUCTS':
+      let maxPrice = Math.max(...action.payload.map((p) => p.price));
       return {
         ...state,
         // we need spred operator because we should use it for reset
         all_products: [...action.payload],
         filtered_products: [...action.payload],
+        filters: { ...state.filters, max_price: maxPrice, price: maxPrice },
       };
     case 'SET_GRIDVIEW':
       return {
@@ -40,6 +42,20 @@ const filter_reducer = (state: FilterUI, action: FilterActionUI): FilterUI => {
         filtered_products: sortBank[sort](
           filtered_products
         ) as BasicProductUI[],
+      };
+
+    case 'UPDATE_FILTERS':
+      return {
+        ...state,
+        filters: {
+          ...state.filters,
+          [action.payload.name]: action.payload.value,
+        },
+      };
+
+    case 'FILTER_PRODUCTS':
+      return {
+        ...state,
       };
 
     default:

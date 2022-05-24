@@ -9,7 +9,7 @@ export const Wrapper = styled.section`
   }
   .search-input {
     padding: 0.5rem;
-    background: var(--clr-grey-10);
+    background: var(--clr-primary-10);
     border-radius: var(--radius);
     border-color: transparent;
     letter-spacing: var(--spacing);
@@ -31,10 +31,10 @@ export const Wrapper = styled.section`
     cursor: pointer;
   }
   .active {
-    border-color: var(--clr-grey-5);
+    border-color: var(--clr-primary-5);
   }
   .company {
-    background: var(--clr-grey-10);
+    background: var(--clr-primary-10);
     border-radius: var(--radius);
     border-color: transparent;
     padding: 0.25rem;
