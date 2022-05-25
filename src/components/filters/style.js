@@ -27,11 +27,12 @@ export const Wrapper = styled.section`
     border: none;
     border-bottom: 1px solid transparent;
     letter-spacing: var(--spacing);
-    color: var(--clr-grey-5);
+    color: var(--clr-primary-5);
     cursor: pointer;
   }
   .active {
-    border-color: var(--clr-primary-5);
+    border-color: var(--clr-yellow);
+    color: var(--clr-primary-3);
   }
   .company {
     background: var(--clr-primary-10);

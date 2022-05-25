@@ -54,8 +54,55 @@ const filter_reducer = (state: FilterUI, action: FilterActionUI): FilterUI => {
       };
 
     case 'FILTER_PRODUCTS':
+      const { all_products } = state;
+      const { category, color, company, text, price, shipping } = state.filters;
+      let tempProducts = [...all_products];
+      // search input text
+      if (text) {
+        tempProducts = tempProducts.filter((product) =>
+          product.name.toLowerCase().startsWith(text)
+        );
+      }
+      // category
+      if (category !== 'all') {
+        tempProducts = tempProducts.filter(
+          (product) => product.category === category
+        );
+      }
+      // company
+      if (company !== 'all') {
+        tempProducts = tempProducts.filter(
+          (product) => product.company === company
+        );
+      }
+      // color
+      if (color !== 'all') {
+        tempProducts = tempProducts.filter((product) =>
+          product.colors.find((c) => c === color)
+        );
+      }
+      // price
+      tempProducts = tempProducts.filter((p) => p.price <= price);
+      // shipping
+      if (shipping) {
+        tempProducts = tempProducts.filter((p) => p.shipping === true);
+      }
       return {
         ...state,
+        filtered_products: tempProducts,
+      };
+    case 'CLEAR_FILTERS':
+      return {
+        ...state,
+        filters: {
+          ...state.filters,
+          text: '',
+          category: 'all',
+          color: 'all',
+          company: 'all',
+          price: state.filters.max_price,
+          shipping: false,
+        },
       };
 
     default:
