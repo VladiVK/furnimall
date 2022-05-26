@@ -135,3 +135,21 @@ export type FilterActionUI =
   | { type: 'UPDATE_FILTERS'; payload: { name: string; value: string } }
   | { type: 'FILTER_PRODUCTS' }
   | { type: 'CLEAR_FILTERS' };
+
+// Cart
+
+export type CartProviderProps = {
+  children: React.ReactNode;
+};
+export type CartUI = {
+  cart: BasicProductUI[];
+  total_items: number;
+  total_amount: number;
+  shipping_fee: number;
+};
+export type CartActionUI =
+  | { type: 'ADD_TO_CART' }
+  | { type: 'REMOVE_CART_ITEM' }
+  | { type: 'TOGGLE_CART_ITEM_AMOUNT' }
+  | { type: 'CLEAR_CART' }
+  | { type: 'COUNT_CART_TOTALS' };
