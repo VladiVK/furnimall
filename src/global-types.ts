@@ -141,14 +141,32 @@ export type FilterActionUI =
 export type CartProviderProps = {
   children: React.ReactNode;
 };
+
+export type CartProductUI = {
+  id: string;
+  name: string;
+  color: string;
+  image: string;
+  price: number;
+  amount: number;
+  max: number;
+};
 export type CartUI = {
-  cart: BasicProductUI[];
+  cart: CartProductUI[];
   total_items: number;
   total_amount: number;
   shipping_fee: number;
 };
 export type CartActionUI =
-  | { type: 'ADD_TO_CART' }
+  | {
+      type: 'ADD_TO_CART';
+      payload: {
+        id: string;
+        color: string;
+        amount: number;
+        product: SingleProductUI;
+      };
+    }
   | { type: 'REMOVE_CART_ITEM' }
   | { type: 'TOGGLE_CART_ITEM_AMOUNT' }
   | { type: 'CLEAR_CART' }
