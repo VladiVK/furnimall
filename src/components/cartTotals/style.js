@@ -4,7 +4,7 @@ export const Wrapper = styled.section`
   display: flex;
   justify-content: center;
   article {
-    border: 1px solid var(--clr-grey-8);
+    border: 1px solid var(--clr-primary-5);
     border-radius: var(--radius);
     padding: 1.5rem 3rem;
   }
@@ -27,6 +27,7 @@ export const Wrapper = styled.section`
     width: 100%;
     margin-top: 1rem;
     text-align: center;
-    font-weight: 700;
+    font-weight: 600;
+    color: var(--clr-white);
   }
 `;
