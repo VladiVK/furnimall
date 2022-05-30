@@ -9,7 +9,7 @@ export const Wrapper = styled.div`
       justify-items: center;
       column-gap: 1rem;
       h5 {
-        color: var(--clr-grey-5);
+        color: var(--clr-primary-4);
         font-weight: 400;
       }
     }

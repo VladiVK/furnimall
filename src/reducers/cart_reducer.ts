@@ -25,7 +25,6 @@ const cart_reducer = (state: CartUI, action: CartActionUI): CartUI => {
 
         return { ...state, cart: tempCart };
       } else {
-        console.log('new item');
         const newItem: CartProductUI = {
           id: id + color,
           name: product.name,
@@ -35,7 +34,7 @@ const cart_reducer = (state: CartUI, action: CartActionUI): CartUI => {
           price: product.price,
           max: product.stock,
         };
-        console.log(newItem);
+
         return { ...state, cart: [...state.cart, newItem] };
       }
     case 'CLEAR_CART':
