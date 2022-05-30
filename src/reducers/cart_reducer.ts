@@ -1,3 +1,4 @@
+import { act } from 'react-dom/test-utils';
 import {
   CartActionUI,
   CartProductUI,
@@ -37,6 +38,11 @@ const cart_reducer = (state: CartUI, action: CartActionUI): CartUI => {
 
         return { ...state, cart: [...state.cart, newItem] };
       }
+    case 'REMOVE_CART_ITEM':
+      return {
+        ...state,
+        cart: state.cart.filter((item) => item.id !== action.payload),
+      };
     case 'CLEAR_CART':
       return { ...state, cart: [] };
 

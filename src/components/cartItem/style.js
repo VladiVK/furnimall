@@ -14,9 +14,9 @@ export const Wrapper = styled.article`
   margin-bottom: 3rem;
   align-items: center;
   .title {
-    grid-template-rows: 75px;
     display: grid;
     grid-template-columns: 75px 125px;
+    grid-template-rows: 75px;
     align-items: center;
     text-align: left;
     gap: 1rem;
@@ -34,7 +34,7 @@ export const Wrapper = styled.article`
   }
 
   .color {
-    color: var(--clr-grey-5);
+    color: var(--clr-primary-5);
     font-size: 0.75rem;
     letter-spacing: var(--spacing);
     text-transform: capitalize;
@@ -95,6 +95,7 @@ export const Wrapper = styled.article`
       display: block;
       font-size: 1rem;
       color: var(--clr-primary-5);
+      color: var(--clr-yellow);
       font-weight: 400;
     }
     .name {

@@ -14,6 +14,7 @@ const CartContent = () => {
   return (
     <Wrapper className='section section-center'>
       <CartColumns />
+
       {cartState.cart.map((cartItem) => {
         return <CartItem key={cartItem.id} {...cartItem} />;
       })}

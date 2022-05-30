@@ -11,6 +11,7 @@ const CartColumns = () => {
         {/* just for good colums look */}
         <span></span>
       </div>
+      <hr />
     </Wrapper>
   );
 };
