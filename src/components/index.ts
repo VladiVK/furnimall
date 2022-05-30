@@ -19,6 +19,8 @@ import ProductList from './productList';
 import GridView from './gridView';
 import ListView from './listView';
 import CartContent from './cartContent';
+import CartColumns from './cartColumns';
+import CartItem from './cartItem';
 export {
   CartButtons,
   Footer,
@@ -41,4 +43,6 @@ export {
   GridView,
   ListView,
   CartContent,
+  CartColumns,
+  CartItem,
 };

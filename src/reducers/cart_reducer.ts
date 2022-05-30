@@ -10,7 +10,7 @@ const cart_reducer = (state: CartUI, action: CartActionUI): CartUI => {
     case 'ADD_TO_CART':
       const { id, color, amount, product } = action.payload;
 
-      const tempItem = state.cart.find((item) => (item.id = item.id + color));
+      const tempItem = state.cart.find((item) => item.id === item.id + color);
       if (tempItem) {
         // increase amount
         const tempCart = state.cart.map((cartItem) => {
@@ -25,6 +25,7 @@ const cart_reducer = (state: CartUI, action: CartActionUI): CartUI => {
 
         return { ...state, cart: tempCart };
       } else {
+        console.log('new item');
         const newItem: CartProductUI = {
           id: id + color,
           name: product.name,
@@ -34,8 +35,11 @@ const cart_reducer = (state: CartUI, action: CartActionUI): CartUI => {
           price: product.price,
           max: product.stock,
         };
+        console.log(newItem);
         return { ...state, cart: [...state.cart, newItem] };
       }
+    case 'CLEAR_CART':
+      return { ...state, cart: [] };
 
     default:
       return state;
