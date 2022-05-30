@@ -29,5 +29,10 @@ export const Wrapper = styled.section`
     text-align: center;
     font-weight: 600;
     color: var(--clr-white);
+    transition: var(--transition);
+
+    &:hover {
+      color: var(--clr-primary-5);
+    }
   }
 `;

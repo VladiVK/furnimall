@@ -19,11 +19,16 @@ export const Wrapper = styled.section`
     transition: var(--transition);
 
     &:hover {
-      color: var(--clr-white);
+      color: var(--clr-primary-4);
     }
   }
   .clear-btn {
     background: var(--clr-primary-5);
     color: var(--clr-white);
+
+    &:hover {
+      background: var(--clr-primary-7);
+      color: var(--clr-white);
+    }
   }
 `;
