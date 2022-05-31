@@ -28,8 +28,9 @@ const CartContext = createContext<{
 export const CartProvider = ({ children }: CartProviderProps) => {
   const [cartState, cartDispatch] = useReducer(reducer, initialState);
 
-  // watch local storage
   useEffect(() => {
+    cartDispatch({ type: 'COUNT_CART_TOTALS' });
+    // watch local storage
     localStorage.setItem('cart', JSON.stringify(cartState.cart));
   }, [cartState.cart]);
 

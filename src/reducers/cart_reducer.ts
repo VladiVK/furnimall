@@ -49,7 +49,7 @@ const cart_reducer = (state: CartUI, action: CartActionUI): CartUI => {
       const { id: ID, value } = action.payload;
       const tempCart = state.cart.map((item) => {
         if (item.id === ID) {
-          if (action.payload.value === 'increase') {
+          if (value === 'increase') {
             let newAmount = item.amount + 1;
             if (newAmount > item.max) {
               newAmount = item.max;
@@ -72,6 +72,20 @@ const cart_reducer = (state: CartUI, action: CartActionUI): CartUI => {
         ...state,
         cart: tempCart,
       };
+
+    case 'COUNT_CART_TOTALS':
+      const { total_items, total_amount } = state.cart.reduce(
+        (total, item) => {
+          total.total_items += item.amount;
+          total.total_amount += item.amount * item.price;
+          return total;
+        },
+        {
+          total_items: 0,
+          total_amount: 0,
+        }
+      );
+      return { ...state, total_amount, total_items };
 
     default:
       return state;
