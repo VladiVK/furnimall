@@ -168,6 +168,9 @@ export type CartActionUI =
       };
     }
   | { type: 'REMOVE_CART_ITEM'; payload: string }
-  | { type: 'TOGGLE_CART_ITEM_AMOUNT' }
+  | {
+      type: 'TOGGLE_CART_ITEM_AMOUNT';
+      payload: { id: string; value: 'increase' | 'decrease' };
+    }
   | { type: 'CLEAR_CART' }
   | { type: 'COUNT_CART_TOTALS' };

@@ -19,9 +19,15 @@ const CartItem = ({ id, amount, color, image, name, price }: CartItemProps) => {
   const removeItem = (id: string) => {
     cartDispatch({ type: 'REMOVE_CART_ITEM', payload: id });
   };
-  const toggleAmount = () => {};
-  const increase = () => {};
-  const decrease = () => {};
+  const toggleAmount = (id: string, value: 'increase' | 'decrease') => {
+    cartDispatch({ type: 'TOGGLE_CART_ITEM_AMOUNT', payload: { id, value } });
+  };
+  const increase = () => {
+    toggleAmount(id, 'increase');
+  };
+  const decrease = () => {
+    toggleAmount(id, 'decrease');
+  };
 
   return (
     <Wrapper>
