@@ -6,20 +6,29 @@ import { ProductsProvider } from './context/products-context/products_context';
 import { FilterProvider } from './context/filters-context/filter_context';
 import App from './App';
 import { CartProvider } from './context/cart-context/cart_context';
+import { Auth0Provider } from '@auth0/auth0-react';
 
 const root = ReactDOM.createRoot(
   document.getElementById('root') as HTMLElement
 );
 root.render(
   <React.StrictMode>
-    <ProductsProvider>
-      <FilterProvider>
-        <BrowserRouter>
-          <CartProvider>
-            <App />
-          </CartProvider>
-        </BrowserRouter>
-      </FilterProvider>
-    </ProductsProvider>
+    <Auth0Provider
+      domain='dev-dpiqs9s8.us.auth0.com'
+      clientId='Kie3C9b7sBuzNvXK0Vot3pGBGDTiY3LI'
+      redirectUri={window.location.origin}
+      cacheLocation='localstorage'
+    >
+      <ProductsProvider>
+        <FilterProvider>
+          <BrowserRouter>
+            <CartProvider>
+              <App />
+            </CartProvider>
+          </BrowserRouter>
+        </FilterProvider>
+      </ProductsProvider>
+    </Auth0Provider>
+    ,
   </React.StrictMode>
 );
