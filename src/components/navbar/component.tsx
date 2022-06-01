@@ -11,10 +11,11 @@ import { NavContainer } from './style.js';
 import CartButtons from '../cartButtons';
 
 import { useProductsContext } from '../../context/products-context/products_context';
-// import { useUserContext } from '../context/user_context';
+import { useUserContext } from '../../context/user-context/user_context';
 
 const Navbar = () => {
   const { productsDispatch } = useProductsContext();
+  const { myUser } = useUserContext();
   const openSidebar = () => productsDispatch({ type: 'SIDEBAR_OPEN' });
 
   return (
@@ -36,6 +37,11 @@ const Navbar = () => {
               </li>
             );
           })}
+          {myUser && (
+            <li>
+              <NavLink to='/checkout'>checkout</NavLink>
+            </li>
+          )}
         </ul>
         <CartButtons />
       </div>

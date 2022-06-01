@@ -7,13 +7,14 @@ import { SidebarContainer } from './styles.js';
 import CartButtons from '../cartButtons';
 
 import { useProductsContext } from '../../context/products-context/products_context';
-import { SIDEBAR_CLOSE } from '../../actions';
-// import { useUserContext } from '../context/user_context';
+import { useUserContext } from '../../context/user-context/user_context';
 
 const Sidebar = () => {
   const { productsState, productsDispatch } = useProductsContext();
 
   const closeSidebar = () => productsDispatch({ type: 'SIDEBAR_CLOSE' });
+
+  const { myUser } = useUserContext();
 
   return (
     <SidebarContainer>
@@ -35,11 +36,13 @@ const Sidebar = () => {
             </li>
           ))}
           {/* checkout */}
-          <li>
-            <NavLink to='/checkout' onClick={closeSidebar}>
-              checkout
-            </NavLink>
-          </li>
+          {myUser && (
+            <li>
+              <NavLink to='/checkout' onClick={closeSidebar}>
+                checkout
+              </NavLink>
+            </li>
+          )}
         </ul>
         <CartButtons />
       </aside>
