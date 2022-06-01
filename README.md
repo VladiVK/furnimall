@@ -35,5 +35,3 @@ in `public` directory create file `_redirects`
     "dev": "netlify dev"
   },
 ```
-
-http://localhost:3000

@@ -7,6 +7,7 @@ import { FilterProvider } from './context/filters-context/filter_context';
 import App from './App';
 import { CartProvider } from './context/cart-context/cart_context';
 import { Auth0Provider } from '@auth0/auth0-react';
+import { UserProvider } from './context/user-context/user_context';
 
 const root = ReactDOM.createRoot(
   document.getElementById('root') as HTMLElement
@@ -19,15 +20,17 @@ root.render(
       redirectUri={window.location.origin}
       cacheLocation='localstorage'
     >
-      <ProductsProvider>
-        <FilterProvider>
-          <BrowserRouter>
-            <CartProvider>
-              <App />
-            </CartProvider>
-          </BrowserRouter>
-        </FilterProvider>
-      </ProductsProvider>
+      <UserProvider>
+        <ProductsProvider>
+          <FilterProvider>
+            <BrowserRouter>
+              <CartProvider>
+                <App />
+              </CartProvider>
+            </BrowserRouter>
+          </FilterProvider>
+        </ProductsProvider>
+      </UserProvider>
     </Auth0Provider>
     ,
   </React.StrictMode>
