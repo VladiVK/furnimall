@@ -174,3 +174,17 @@ export type CartActionUI =
     }
   | { type: 'CLEAR_CART' }
   | { type: 'COUNT_CART_TOTALS' };
+
+// User Auth
+
+export type UserUI =
+  | boolean
+  | {
+      email: string;
+      email_verified: boolean;
+      name: string;
+      nickname: string;
+      picture: string;
+      sub: string;
+      updated_at: string;
+    };

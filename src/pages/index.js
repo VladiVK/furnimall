@@ -5,7 +5,6 @@ import CartPage from './cartPage/CartPage';
 import CheckoutPage from './checkoutPage/CheckoutPage';
 import ErrorPage from './errorPage/ErrorPage';
 import HomePage from './homePage/HomePage';
-import PrivateRoutePage from './privateroutePage/PrivateRoutePage';
 import ProductsPage from './productsPage/ProductsPage';
 import SingleProductPage from './singleProductPage/SingleProductPage';
 
@@ -16,7 +15,6 @@ export {
   CheckoutPage,
   ErrorPage,
   HomePage,
-  PrivateRoutePage,
   ProductsPage,
   SingleProductPage,
   SharedLayout,

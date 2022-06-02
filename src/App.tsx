@@ -1,5 +1,6 @@
 import React from 'react';
-import { Routes, Route } from 'react-router-dom';
+import { Routes, Route, Navigate } from 'react-router-dom';
+import { useUserContext } from './context/user-context/user_context';
 
 // Pages
 import {
@@ -10,11 +11,12 @@ import {
   CartPage,
   CheckoutPage,
   ErrorPage,
-  PrivateRoutePage,
   SharedLayout,
 } from './pages';
 
 function App() {
+  const { myUser } = useUserContext();
+
   return (
     <div>
       <Routes>
@@ -24,7 +26,11 @@ function App() {
           <Route path='cart' element={<CartPage />} />
           <Route path='products' element={<ProductsPage />} />
           <Route path='products/:id' element={<SingleProductPage />} />
-          <Route path='checkout' element={<CheckoutPage />} />
+          {/* Private route: Auth protected */}
+          <Route
+            path='checkout'
+            element={myUser ? <CheckoutPage /> : <Navigate replace to='/' />}
+          />
           <Route path='*' element={<ErrorPage />} />
         </Route>
       </Routes>

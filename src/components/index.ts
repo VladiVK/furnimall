@@ -22,6 +22,7 @@ import CartContent from './cartContent';
 import CartColumns from './cartColumns';
 import CartItem from './cartItem';
 import CartTotals from './cartTotals';
+
 export {
   CartButtons,
   Footer,

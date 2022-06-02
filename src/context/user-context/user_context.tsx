@@ -1,13 +1,13 @@
 import React, { useState, useEffect, createContext, useContext } from 'react';
 import { useAuth0 } from '@auth0/auth0-react';
+import { UserUI } from '../../global-types';
 
 export type UserStateModel = {
   loginWithRedirect: () => any;
   logout: (arg: any) => any;
-  myUser: any;
+  myUser: UserUI;
 };
 
-// // @ts-ignore
 const UserContext = createContext<UserStateModel>({} as UserStateModel);
 
 type UserProviderProps = {
@@ -16,14 +16,14 @@ type UserProviderProps = {
 export const UserProvider = ({ children }: UserProviderProps) => {
   const { isAuthenticated, loginWithRedirect, user, logout, isLoading } =
     useAuth0();
-  const [myUser, setMyUser] = useState(null);
+
+  const [myUser, setMyUser] = useState(false);
 
   useEffect(() => {
     if (isAuthenticated) {
       // @ts-ignore
       setMyUser(user);
     } else {
-      // @ts-ignore
       setMyUser(false);
     }
   }, [isAuthenticated]);
