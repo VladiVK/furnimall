@@ -1,6 +1,6 @@
 import React from 'react';
 import { Routes, Route, Navigate } from 'react-router-dom';
-import { useUserContext } from './context/user-context/user_context';
+// import { useUserContext } from './context/user-context/user_context';
 import { useAuth0 } from '@auth0/auth0-react';
 
 // Pages
