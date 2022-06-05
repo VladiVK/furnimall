@@ -7,7 +7,6 @@ import { useUserContext } from '../../context/user-context/user_context';
 const CartTotals = () => {
   const {
     cartState: { total_amount, shipping_fee },
-    cartDispatch,
   } = useCartContext();
 
   const { myUser, loginWithRedirect } = useUserContext();

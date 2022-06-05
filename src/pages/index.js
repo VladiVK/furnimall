@@ -7,7 +7,7 @@ import ErrorPage from './errorPage/ErrorPage';
 import HomePage from './homePage/HomePage';
 import ProductsPage from './productsPage/ProductsPage';
 import SingleProductPage from './singleProductPage/SingleProductPage';
-
+import AuthWrapper from './authPage/AuthWrapper';
 export {
   AboutPage,
   AuthPage,
@@ -18,4 +18,5 @@ export {
   ProductsPage,
   SingleProductPage,
   SharedLayout,
+  AuthWrapper,
 };

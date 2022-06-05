@@ -35,3 +35,23 @@ in `public` directory create file `_redirects`
     "dev": "netlify dev"
   },
 ```
+
+### For Stripe install / special version
+
+---
+
+npm install dotenv@8.2.0 stripe@8.130.0 @stripe/react-stripe-js@1.1.2 @stripe/stripe-js@1.11.0 netlify@6.0.12
+
+---
+
+npm i dotenv
+
+npm i stripe
+
+npm i @stripe/stripe-js
+
+npm i @stripe/react-stripe-js
+
+npm i netlify
+
+npm install dotenv stripe @stripe/stripe-js @stripe/react-stripe-js netlify

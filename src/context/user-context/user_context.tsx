@@ -14,19 +14,19 @@ type UserProviderProps = {
   children: React.ReactNode;
 };
 export const UserProvider = ({ children }: UserProviderProps) => {
-  const { isAuthenticated, loginWithRedirect, user, logout, isLoading } =
-    useAuth0();
+  const {
+    // isAuthenticated,
+    loginWithRedirect,
+    user,
+    logout,
+    // isLoading,
+  } = useAuth0();
 
-  const [myUser, setMyUser] = useState(false);
+  const [myUser, setMyUser] = useState(false as UserUI);
 
   useEffect(() => {
-    if (isAuthenticated) {
-      // @ts-ignore
-      setMyUser(user);
-    } else {
-      setMyUser(false);
-    }
-  }, [isAuthenticated]);
+    setMyUser(user as UserUI);
+  }, [user]);
   return (
     <UserContext.Provider value={{ loginWithRedirect, logout, myUser }}>
       {children}
