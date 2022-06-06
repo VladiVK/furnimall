@@ -54,4 +54,10 @@ npm i @stripe/react-stripe-js
 
 npm i netlify
 
+or one line:
+
 npm install dotenv stripe @stripe/stripe-js @stripe/react-stripe-js netlify
+
+---
+
+npm install netlify-cli -D

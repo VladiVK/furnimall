@@ -7,12 +7,11 @@ export type UserStateModel = {
   logout: (arg: any) => any;
   myUser: UserUI;
 };
-
-const UserContext = createContext<UserStateModel>({} as UserStateModel);
-
 type UserProviderProps = {
   children: React.ReactNode;
 };
+const UserContext = createContext<UserStateModel>({} as UserStateModel);
+
 export const UserProvider = ({ children }: UserProviderProps) => {
   const {
     // isAuthenticated,
