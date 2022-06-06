@@ -22,6 +22,7 @@ import CartContent from './cartContent';
 import CartColumns from './cartColumns';
 import CartItem from './cartItem';
 import CartTotals from './cartTotals';
+import StripeCheckout from './stripeCheckout';
 
 export {
   CartButtons,
@@ -48,4 +49,5 @@ export {
   CartColumns,
   CartItem,
   CartTotals,
+  StripeCheckout,
 };
