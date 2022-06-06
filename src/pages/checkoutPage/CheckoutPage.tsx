@@ -1,5 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+
+// components
 import { PageHero, StripeCheckout } from '../../components';
 // cart constext
 import { useCartContext } from '../../context/cart-context/cart_context';
