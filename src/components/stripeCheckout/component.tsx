@@ -1,3 +1,6 @@
+// remove after proccess!!!
+// https://www.sipios.com/blog-tech/adding-payments-to-your-web-application-an-introduction-to-stripe-integration
+
 import React, { useState, useEffect } from 'react';
 // router
 import { useNavigate } from 'react-router-dom';
@@ -30,6 +33,8 @@ const CheckoutForm = () => {
   // cart
   const { cartState, cartDispatch } = useCartContext();
   const { cart, shipping_fee, total_amount } = cartState;
+  console.log('cartState: ', cartState);
+
   const clearCart = () => {
     cartDispatch({ type: 'CLEAR_CART' });
   };
@@ -65,7 +70,15 @@ const CheckoutForm = () => {
     },
   };
   const createPaymentIntent = async () => {
-    console.log('greetings from stripe checkout');
+    console.log('createPaymentIntent doing...');
+    try {
+      const { data } = await axios.post(
+        '/.netlify/functions/create-payment-intent',
+        JSON.stringify({ cart, shipping_fee, total_amount })
+      );
+    } catch (error) {
+      console.log(error);
+    }
   };
   useEffect(() => {
     createPaymentIntent();
