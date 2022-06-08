@@ -1,7 +1,8 @@
 import styled from 'styled-components';
 
 export const Wrapper = styled.section`
-  min-height: 60vh;
+  /* min-height: 60vh; */
+  min-height: 80vh;
   display: grid;
   place-items: center;
   .img-container {
@@ -28,6 +29,7 @@ export const Wrapper = styled.section`
     .hero-btn {
       padding: 0.75rem 1.5rem;
       font-size: 1rem;
+      margin-bottom: 1rem;
     }
     .img-container {
       display: block;
