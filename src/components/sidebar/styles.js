@@ -2,6 +2,7 @@ import styled from 'styled-components';
 
 export const SidebarContainer = styled.div`
   text-align: center;
+  background: var(--clr-white);
   .sidebar {
     position: fixed;
     top: 0;
@@ -29,7 +30,8 @@ export const SidebarContainer = styled.div`
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 1rem 1.5rem;
+    /* padding: 1rem 1.5rem; */
+    padding: 1rem 2.5rem 1rem 1.5rem;
   }
   .close-btn {
     font-size: 2rem;
@@ -55,7 +57,8 @@ export const SidebarContainer = styled.div`
     text-align: left;
     font-size: 1rem;
     text-transform: capitalize;
-    padding: 1rem 1.5rem;
+    /* padding: 1rem 1.5rem; */
+    padding: 1rem 2.5rem 1rem 1.5rem;
     color: var(--clr-primary-4);
     transition: var(--transition);
     letter-spacing: var(--spacing);
