@@ -19,8 +19,8 @@ export const Wrapper = styled.section`
 
   .form-input,
   .submit-btn {
-    font-size: 1rem;
-    padding: 0.5rem 1rem;
+    font-size: 0.75rem;
+    padding: 0.5rem 0.2rem;
     border: 2px solid var(--clr-black);
   }
   .form-input {
@@ -48,6 +48,7 @@ export const Wrapper = styled.section`
   .submit-btn:hover {
     color: var(--clr-white);
   }
+
   @media (min-width: 992px) {
     .content {
       display: grid;
@@ -58,6 +59,12 @@ export const Wrapper = styled.section`
     }
     p {
       margin-bottom: 0;
+    }
+
+    .form-input,
+    .submit-btn {
+      font-size: 1rem;
+      padding: 0.5rem 1rem;
     }
   }
   @media (min-width: 1280px) {
