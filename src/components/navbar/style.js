@@ -42,6 +42,21 @@ export const NavContainer = styled.nav`
     display: none;
   }
 
+  @media (min-width: 900px) {
+    .nav__header img {
+      margin-left: -20px;
+    }
+  }
+  @media (min-width: 1000px) {
+    .nav__header img {
+      margin-left: -25px;
+    }
+  }
+  @media (min-width: 1200px) {
+    .nav__header img {
+      margin-left: 0;
+    }
+  }
   @media (min-width: 992px) {
     .nav__toggle {
       display: none;
