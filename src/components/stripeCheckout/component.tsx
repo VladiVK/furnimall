@@ -7,6 +7,7 @@ import { useNavigate } from 'react-router-dom';
 // stripe
 import {
   loadStripe,
+  PaymentIntentResult,
   StripeCardElementChangeEvent,
   StripeError,
 } from '@stripe/stripe-js';
@@ -25,7 +26,7 @@ import { useUserContext } from '../../context/user-context/user_context';
 import { formatPrice } from '../../utils/helpers';
 // style
 import { Wrapper } from './style';
-import { captureRejectionSymbol } from 'events';
+import { UserUI } from '../../global-types';
 
 const promise = loadStripe(process.env.REACT_APP_STRIPE_PUBLIC_KEY as string);
 
@@ -33,7 +34,6 @@ const CheckoutForm = () => {
   // cart
   const { cartState, cartDispatch } = useCartContext();
   const { cart, shipping_fee, total_amount } = cartState;
-  console.log('cartState: ', cartState);
 
   const clearCart = () => {
     cartDispatch({ type: 'CLEAR_CART' });
@@ -70,24 +70,77 @@ const CheckoutForm = () => {
     },
   };
   const createPaymentIntent = async () => {
-    console.log('createPaymentIntent doing...');
     try {
       const { data } = await axios.post(
         '/.netlify/functions/create-payment-intent',
         JSON.stringify({ cart, shipping_fee, total_amount })
       );
+
+      setClientSecret(data.clientSecret);
     } catch (error) {
-      console.log(error);
+      // @ts-ignore
+      // console.log(error.response);
     }
   };
   useEffect(() => {
     createPaymentIntent();
   }, []);
-  const handleChange = async (e: StripeCardElementChangeEvent) => {};
-  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {};
+  const handleChange = async (e: StripeCardElementChangeEvent) => {
+    setdisabled(e.empty);
+    // setError(e.error ? e.error.message : null)
+    setError(e.error ? e.error : null);
+  };
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    if (!stripe || !elements) {
+      // Stripe.js has not loaded yet. Make sure to disable
+      // form submission until Stripe.js has loaded.
+      return;
+    }
+    const cardElement = elements.getElement(CardElement);
+
+    if (cardElement) {
+      setProcessing(true);
+      const payload = stripe.confirmCardPayment(clientSecret, {
+        payment_method: {
+          card: cardElement,
+        },
+      });
+      // @ts-ignore
+      if (payload.error) {
+        // @ts-ignore
+        setError(`Payment failed ${payload.error}`);
+        setProcessing(false);
+      } else {
+        setError(null);
+        setProcessing(false);
+        setSucceeded(true);
+
+        // optional approach
+        setTimeout(() => {
+          clearCart();
+          navigate('/');
+        }, 10000);
+      }
+    }
+  };
 
   return (
     <div>
+      {succeeded ? (
+        <article>
+          <h4>Thank you</h4>
+          <h4>Your payment was successeful</h4>
+          <h4>Redirect to home page shortly</h4>
+        </article>
+      ) : (
+        <article>
+          {/* @ts-ignore */}
+          <h4>Hello, {myUser && myUser.name}</h4>
+          <p>Your total sum is {formatPrice(total_amount + shipping_fee)}</p>
+          <p>Test card number: 4242 4242 4242 4242</p>
+        </article>
+      )}
       {/* all structure is from stripe setup */}
       <form id='payment-form' onSubmit={handleSubmit}>
         <CardElement options={cardStyle} onChange={handleChange} />
